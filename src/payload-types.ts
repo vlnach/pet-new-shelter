@@ -70,6 +70,8 @@ export interface Config {
     users: User;
     media: Media;
     pages: Page;
+    'animal-types': AnimalType;
+    pets: Pet;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -80,6 +82,8 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    'animal-types': AnimalTypesSelect<false> | AnimalTypesSelect<true>;
+    pets: PetsSelect<false> | PetsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -175,6 +179,30 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "animal-types".
+ */
+export interface AnimalType {
+  id: number;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pets".
+ */
+export interface Pet {
+  id: number;
+  name: string;
+  type: number | AnimalType;
+  age: number;
+  description?: string | null;
+  photo: number | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -208,6 +236,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'animal-types';
+        value: number | AnimalType;
+      } | null)
+    | ({
+        relationTo: 'pets';
+        value: number | Pet;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -299,6 +335,28 @@ export interface PagesSelect<T extends boolean = true> {
   title?: T;
   url?: T;
   content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "animal-types_select".
+ */
+export interface AnimalTypesSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pets_select".
+ */
+export interface PetsSelect<T extends boolean = true> {
+  name?: T;
+  type?: T;
+  age?: T;
+  description?: T;
+  photo?: T;
   updatedAt?: T;
   createdAt?: T;
 }

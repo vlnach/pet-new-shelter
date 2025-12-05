@@ -46,6 +46,9 @@ export default async function HomePage() {
           >
             Documentation
           </a>
+          <a className="links" href="/pets" rel="noopener noreferrer" target="_blank">
+            Pets
+          </a>
         </div>
       </div>
       <div className="footer">
