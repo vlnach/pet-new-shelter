@@ -1,15 +1,26 @@
 import Link from 'next/link'
+import './Header.css'
 
 export default function Header() {
   return (
-    <header className="w-full py-6 border-b border-gray-200 flex items-center justify-between px-6">
-      <div className="text-xl font-bold">PetShelter</div>
-      <nav className="flex gap-6 text-lg">
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/pets">Pets</Link>
-        <Link href="/support">Support</Link>
-      </nav>
+    <header className="site-header">
+      <div className="container site-header-inner">
+        <Link href="/" className="site-logo">
+          <span className="site-logo-mark">🐾</span>
+          <span className="site-logo-text">Pet Shelter</span>
+        </Link>
+
+        <nav className="site-nav">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/pets">Pets</Link>
+          <Link href="/support">Support</Link>
+        </nav>
+
+        <Link href="/support" className="site-cta">
+          Adopt a pet
+        </Link>
+      </div>
     </header>
   )
 }
