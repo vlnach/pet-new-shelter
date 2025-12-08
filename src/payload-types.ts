@@ -198,6 +198,7 @@ export interface Pet {
   age: number;
   description?: string | null;
   photo: number | Media;
+  slug: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -357,6 +358,7 @@ export interface PetsSelect<T extends boolean = true> {
   age?: T;
   description?: T;
   photo?: T;
+  slug?: T;
   updatedAt?: T;
   createdAt?: T;
 }

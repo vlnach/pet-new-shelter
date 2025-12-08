@@ -42,5 +42,12 @@ export const Pets: CollectionConfig = {
       relationTo: 'media',
       required: true,
     },
+    {
+      name: 'slug',
+      label: 'Slug for URL',
+      type: 'text',
+      required: true,
+      unique: true,
+    },
   ],
 }
