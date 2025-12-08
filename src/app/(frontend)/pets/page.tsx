@@ -2,10 +2,17 @@ import React from 'react'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 
-import { Filters } from './filter.tsx'
-import { PetsGrid } from './petsGrid.tsx'
+import { Filters } from './filter'
+import { PetsGrid } from './petsGrid'
+import './pets.css'
 
-export default async function PetsPage({ searchParams }: any) {
+type PetsType = {
+  searchParams?: {
+    type?: string
+  }
+}
+
+export default async function PetsPage({ searchParams }: PetsType) {
   const payload = await getPayload({ config: configPromise })
 
   // 1. Get animal types for the filter
@@ -25,7 +32,8 @@ export default async function PetsPage({ searchParams }: any) {
   })
 
   return (
-    <div>
+    <div className="pets-page">
+      <h1 className="pets-page-title">Pets</h1>
       {/* Filter */}
       <Filters types={types.docs} selected={selectedType} />
 

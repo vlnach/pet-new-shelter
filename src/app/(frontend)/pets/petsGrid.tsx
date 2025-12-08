@@ -1,15 +1,36 @@
-export function PetsGrid({ pets }: any) {
+import { Pet } from '@/payload-types'
+
+type PetsGrid = {
+  id: number | string
+  name: string
+  age?: number
+  description?: string
+  photo?: {
+    url?: string
+  }
+}
+
+type PetsGridType = {
+  pets: PetsGrid[]
+}
+
+export function PetsGrid({ pets }: PetsGridType) {
+  if (!pets.length) {
+    return <div className="pets-grid-empty">No pets found.</div>
+  }
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      {pets.map((pet: any) => (
-        <div key={pet.id} className="rounded-xl border border-gray-800 p-4 bg-black/20">
-          <img src={pet.photo?.url} alt={pet.name} className="links" />
+    <div className="pets-grid">
+      {pets.map((pet) => (
+        <article key={pet.id} className="pet-card">
+          {pet.photo?.url && <img src={pet.photo.url} alt={pet.name} className="pet-card-image" />}
 
-          <h3 className="text-lg font-semibold">{pet.name}</h3>
-          <p className="text-sm text-gray-400">{pet.age} years old</p>
-
-          <p className="text-sm mt-2">{pet.description}</p>
-        </div>
+          <div className="pet-card-body">
+            <h3 className="pet-card-title">{pet.name}</h3>
+            {pet.age != null && <p className="pet-card-meta">{pet.age} years old</p>}
+            {pet.description && <p className="pet-card-description">{pet.description}</p>}
+          </div>
+        </article>
       ))}
     </div>
   )
