@@ -1,7 +1,17 @@
 import { Pet } from '@/payload-types'
 
+type PetsGrid = {
+  id: number | string
+  name: string
+  age?: number
+  description?: string
+  photo?: {
+    url?: string
+  }
+}
+
 type PetsGridType = {
-  pets: Pet[]
+  pets: PetsGrid[]
 }
 
 export function PetsGrid({ pets }: PetsGridType) {
