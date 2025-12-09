@@ -1,0 +1,42 @@
+.pet-detail {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pet-detail-image {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  object-fit: cover;
+}
+
+.pet-detail-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.pet-detail-meta {
+  opacity: 0.7;
+  margin: 0;
+}
+
+.pet-detail-description {
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+.pet-detail-adopt-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: #f3b15a;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+}
+.pet-detail-adopt-btn:hover {
+  filter: brightness(1.05);
+}

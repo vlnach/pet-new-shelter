@@ -1,0 +1,76 @@
+.adopt-page {
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.adopt-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.adopt-form {
+  display: grid;
+  gap: 16px;
+}
+
+.adopt-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.adopt-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.adopt-input,
+.adopt-textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #111;
+  color: #f5f5f5;
+}
+
+.adopt-input:focus,
+.adopt-textarea:focus {
+  outline: none;
+  border-color: #f3b15a;
+}
+
+.adopt-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.adopt-button {
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: none;
+  background: #f3b15a;
+  color: #111;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.adopt-button:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.adopt-status {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.adopt-status--success {
+  color: #2b8a3e;
+}
+
+.adopt-status--error {
+  color: #c92a2a;
+}

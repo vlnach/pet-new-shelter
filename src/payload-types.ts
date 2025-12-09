@@ -69,9 +69,9 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
-    pages: Page;
     'animal-types': AnimalType;
     pets: Pet;
+    adoptions: Adoption;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -81,9 +81,9 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
-    pages: PagesSelect<false> | PagesSelect<true>;
     'animal-types': AnimalTypesSelect<false> | AnimalTypesSelect<true>;
     pets: PetsSelect<false> | PetsSelect<true>;
+    adoptions: AdoptionsSelect<false> | AdoptionsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -167,18 +167,6 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: number;
-  title: string;
-  url: string;
-  content?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "animal-types".
  */
 export interface AnimalType {
@@ -199,6 +187,19 @@ export interface Pet {
   description?: string | null;
   photo: number | Media;
   slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "adoptions".
+ */
+export interface Adoption {
+  id: number;
+  pet: number | Pet;
+  name: string;
+  email: string;
+  message?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -235,16 +236,16 @@ export interface PayloadLockedDocument {
         value: number | Media;
       } | null)
     | ({
-        relationTo: 'pages';
-        value: number | Page;
-      } | null)
-    | ({
         relationTo: 'animal-types';
         value: number | AnimalType;
       } | null)
     | ({
         relationTo: 'pets';
         value: number | Pet;
+      } | null)
+    | ({
+        relationTo: 'adoptions';
+        value: number | Adoption;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -330,17 +331,6 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages_select".
- */
-export interface PagesSelect<T extends boolean = true> {
-  title?: T;
-  url?: T;
-  content?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "animal-types_select".
  */
 export interface AnimalTypesSelect<T extends boolean = true> {
@@ -359,6 +349,18 @@ export interface PetsSelect<T extends boolean = true> {
   description?: T;
   photo?: T;
   slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "adoptions_select".
+ */
+export interface AdoptionsSelect<T extends boolean = true> {
+  pet?: T;
+  name?: T;
+  email?: T;
+  message?: T;
   updatedAt?: T;
   createdAt?: T;
 }

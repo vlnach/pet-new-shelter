@@ -8,7 +8,7 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
-import { Pages } from './collections/Pages'
+import { Adoptions } from './collections/Adoptions'
 import { Pets } from './collections/Pets'
 import { AnimalTypes } from './collections/AnimalTypes'
 
@@ -22,7 +22,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Pages, AnimalTypes, Pets],
+  collections: [Users, Media, AnimalTypes, Pets, Adoptions],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
