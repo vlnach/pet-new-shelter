@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-import Header from '@/components/Header/Component'
+import Header from '@/app/(frontend)/Header/Component'
 
 export const metadata = {
   description: 'A blank template using Payload in a Next.js app.',
