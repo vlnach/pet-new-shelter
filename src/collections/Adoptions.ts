@@ -8,6 +8,8 @@ export const Adoptions: CollectionConfig = {
   },
   access: {
     read: ({ req }) => !!req.user,
+    const body = await req.json()
+console.log('ADOPT BODY:', body)
     create: () => true,
   },
   fields: [
