@@ -19,7 +19,7 @@ export default function AdoptForm({ petId }: AdoptFormProps) {
     const form = e.currentTarget
 
     const data = {
-      pet: petId,
+      pet: Number(petId),
       name: (form.elements.namedItem('name') as HTMLInputElement)?.value || '',
       email: (form.elements.namedItem('email') as HTMLInputElement)?.value || '',
       message: (form.elements.namedItem('message') as HTMLTextAreaElement)?.value || '',

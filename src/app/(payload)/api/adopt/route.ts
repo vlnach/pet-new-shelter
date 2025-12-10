@@ -4,6 +4,7 @@ import configPromise from '@payload-config'
 
 export async function POST(request: Request) {
   const body = await request.json()
+  console.log('ADOPT BODY:', body)
   const payload = await getPayload({ config: configPromise })
 
   await payload.create({
