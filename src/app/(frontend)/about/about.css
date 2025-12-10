@@ -1,0 +1,30 @@
+.about-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 24px 120px;
+}
+
+/* First short paragraph under the title */
+.about-lead {
+  max-width: 640px;
+  margin-top: 16px;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Sections with a simple divider */
+.about-section {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* List at the bottom */
+.about-list {
+  margin-top: 16px;
+  padding-left: 20px;
+}
+
+.about-list li {
+  margin-bottom: 8px;
+}
