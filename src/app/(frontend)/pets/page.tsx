@@ -1,16 +1,20 @@
-import React from 'react'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 
 import { Filters } from './filter'
 import { PetsGrid } from './petsGrid'
+import { Search } from './Search'
 import './pets.css'
-import SearchPage from '../search/page'
 
 type PetsType = {
   searchParams?: {
     type?: string
+    q?: string
   }
+}
+type PetsWhereConditions = {
+  type?: { equals: string }
+  name?: { like: string }
 }
 
 export default async function PetsPage({ searchParams }: PetsType) {
@@ -22,24 +26,46 @@ export default async function PetsPage({ searchParams }: PetsType) {
     limit: 100,
   })
 
-  // 2. Read the selected filter from the URL (?type=dog)
+  // 2. Read the selected filter and search query from the URL (?type=dog&q=buddy)
   const selectedType = searchParams?.type || null
+  const searchQuery = searchParams?.q || ''
 
-  // 3. Get the list of pets
+  // 3. Build the query conditions
+
+  const whereConditions: PetsWhereConditions = {}
+
+  if (selectedType) {
+    whereConditions.type = { equals: selectedType }
+  }
+
+  if (searchQuery) {
+    whereConditions.name = { like: searchQuery }
+  }
+
+  // 4. Get the list of pets
   const pets = await payload.find({
     collection: 'pets',
     limit: 100,
-    where: selectedType ? { type: { equals: selectedType } } : {},
+    where: Object.keys(whereConditions).length > 0 ? whereConditions : {},
   })
 
   return (
     <div className="pets-page">
       <h1 className="pets-page-title">Pets</h1>
-      {/* Filter */}
-      <Filters types={types.docs} selected={selectedType} />
-      {/* Search */}
-      <SearchPage searchParams={searchParams} />
-      {/* Card grid */}
+
+      <div className="pets-toolbar">
+        <Filters types={types.docs} selected={selectedType} searchQuery={searchQuery} />
+        <Search defaultValue={searchQuery} />
+      </div>
+
+      {searchQuery && (
+        <p className="pets-search-info">
+          {pets.docs.length > 0
+            ? `Found ${pets.docs.length} result${pets.docs.length === 1 ? '' : 's'} for "${searchQuery}"`
+            : `No pets found for "${searchQuery}"`}
+        </p>
+      )}
+
       <PetsGrid pets={pets.docs} />
     </div>
   )
