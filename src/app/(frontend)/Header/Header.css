@@ -33,7 +33,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(247, 239, 229, 0.9);
+  background: rgb(247 239 229 / 90%);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid #e0d3c6;
 }
@@ -108,16 +108,16 @@ body {
     background 0.15s ease,
     transform 0.1s ease,
     box-shadow 0.15s ease;
-  box-shadow: 0 6px 12px rgba(160, 90, 40, 0.25);
+  box-shadow: 0 6px 12px rgb(160 90 40 / 25%);
 }
 
 .site-cta:hover {
   background: #aa6632;
   transform: translateY(-1px);
-  box-shadow: 0 10px 18px rgba(160, 90, 40, 0.3);
+  box-shadow: 0 10px 18px rgb(160 90 40 / 30%);
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .site-header-inner {
     gap: 12px;
   }

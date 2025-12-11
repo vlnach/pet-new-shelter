@@ -1,14 +1,13 @@
 .search-page {
-  max-width: 800px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 24px 56px;
 }
 
 .search-title {
+  margin: 0 0 24px;
   font-size: 32px;
-  line-height: 1.2;
-  font-weight: 700;
-  margin-bottom: 24px;
+  line-height: 1.1;
 }
 
 .search-form {
@@ -29,7 +28,7 @@
 .search-input:focus {
   outline: none;
   border-color: #e49a42;
-  box-shadow: 0 0 0 2px rgba(228, 154, 66, 0.2);
+  box-shadow: 0 0 0 2px rgb(228 154 66 / 20%);
 }
 
 .search-button {

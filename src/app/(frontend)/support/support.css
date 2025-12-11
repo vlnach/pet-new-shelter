@@ -1,25 +1,21 @@
 .support-page {
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 80px 24px 120px;
+  padding: 40px 24px 56px;
 }
 
-/* First short paragraph under the title */
 .about-lead {
-  max-width: 640px;
-  margin-top: 16px;
-  font-size: 1rem;
-  line-height: 1.7;
+  margin: 0 0 24px;
+  font-size: 32px;
+  line-height: 1.1;
 }
 
-/* Sections with a simple divider */
 .about-section {
   margin-top: 56px;
   padding-top: 32px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgb(0 0 0 / 8%);
 }
 
-/* List at the bottom */
 .about-list {
   margin-top: 16px;
   padding-left: 20px;

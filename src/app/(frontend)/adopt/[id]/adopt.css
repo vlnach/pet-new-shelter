@@ -1,13 +1,13 @@
 .adopt-page {
-  padding: 40px;
-  max-width: 600px;
+  max-width: 1040px;
   margin: 0 auto;
+  padding: 40px 24px 56px;
 }
 
 .adopt-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 16px;
+  margin: 0 0 24px;
+  font-size: 32px;
+  line-height: 1.1;
 }
 
 .adopt-form {

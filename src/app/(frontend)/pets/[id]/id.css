@@ -1,7 +1,7 @@
 .pet-detail {
-  padding: 40px;
-  max-width: 800px;
+  max-width: 1040px;
   margin: 0 auto;
+  padding: 40px 24px 56px;
 }
 
 .pet-detail-image {
@@ -12,9 +12,9 @@
 }
 
 .pet-detail-title {
+  margin: 0 0 24px;
   font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 8px;
+  line-height: 1.1;
 }
 
 .pet-detail-meta {
