@@ -1,20 +1,8 @@
-.pet-detail {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 40px 24px 56px;
-}
-
 .pet-detail-image {
   width: 100%;
   border-radius: 16px;
   margin-bottom: 24px;
   object-fit: cover;
-}
-
-.pet-detail-title {
-  margin: 0 0 24px;
-  font-size: 32px;
-  line-height: 1.1;
 }
 
 .pet-detail-meta {
@@ -36,7 +24,4 @@
   color: #111;
   text-decoration: none;
   font-weight: 600;
-}
-.pet-detail-adopt-btn:hover {
-  filter: brightness(1.05);
 }

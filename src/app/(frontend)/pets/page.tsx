@@ -3,7 +3,7 @@ import configPromise from '@payload-config'
 
 import { Filters } from './filter'
 import { PetsGrid } from './petsGrid'
-import { Search } from './Search'
+import { Search } from './search'
 import './pets.css'
 
 type PetsType = {
@@ -50,8 +50,8 @@ export default async function PetsPage({ searchParams }: PetsType) {
   })
 
   return (
-    <div className="pets-page">
-      <h1 className="pets-page-title">Pets</h1>
+    <main>
+      <h1>Pets</h1>
 
       <div className="pets-toolbar">
         <Filters types={types.docs} selected={selectedType} searchQuery={searchQuery} />
@@ -67,6 +67,6 @@ export default async function PetsPage({ searchParams }: PetsType) {
       )}
 
       <PetsGrid pets={pets.docs} />
-    </div>
+    </main>
   )
 }

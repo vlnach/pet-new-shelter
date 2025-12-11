@@ -17,10 +17,10 @@ export default async function HomePage() {
   const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   return (
-    <main className="home-page">
-      <section className="hero">
+    <div>
+      <div className="hero">
         <div className="hero-text">
-          <h1 className="hero-title">
+          <h1>
             Find a safe home
             <br />
             for every pet.
@@ -57,13 +57,12 @@ export default async function HomePage() {
             <Image
               src="/happy-family-with-adopted-dog-in-cozy-home.jpg"
               alt="Happy dog with family"
-              layout="responsive"
               width={700}
               height={475}
             />
           </div>
         </div>
-      </section>
+      </div>
 
       <section className="home-section">
         <h2>How this project helps</h2>
@@ -78,6 +77,6 @@ export default async function HomePage() {
           pets.
         </p>
       </section>
-    </main>
+    </div>
   )
 }

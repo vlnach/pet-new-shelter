@@ -1,16 +1,16 @@
 import AdoptForm from './AdoptForm'
 
-type Props = {
+type FormType = {
   params: {
     id: string
   }
 }
 
-export default function AdoptPage({ params }: Props) {
+export default function AdoptPage({ params }: FormType) {
   return (
-    <div className="adopt-page">
-      <h1 className="adopt-title">Adopt this pet</h1>
+    <main>
+      <h1>Adopt this pet</h1>
       <AdoptForm petId={params.id} />
-    </div>
+    </main>
   )
 }

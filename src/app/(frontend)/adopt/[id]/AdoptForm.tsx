@@ -43,7 +43,7 @@ export default function AdoptForm({ petId }: AdoptFormProps) {
   }
 
   return (
-    <form className="adopt-form" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div className="adopt-field">
         <label className="adopt-label" htmlFor="name">
           Your name

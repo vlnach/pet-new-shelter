@@ -33,6 +33,9 @@ export function PetsGrid({ pets }: PetsGridType) {
             </h3>
             {pet.age != null && <p className="pet-card-meta">{pet.age} years old</p>}
             {pet.description && <p className="pet-card-description">{pet.description}</p>}
+            <Link href={`/adopt/${pet.id}`} className="adopt-button">
+              Adopt this pet
+            </Link>
           </div>
         </article>
       ))}

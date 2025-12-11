@@ -1,16 +1,14 @@
-import './about.css'
-
 export default function AboutPage() {
   return (
-    <main className="about-page">
+    <main>
       <h1>About our shelter</h1>
 
-      <p className="about-lead">
+      <p>
         Pet Shelter is a small non-profit project that helps local shelters find safe and loving
         homes for cats, dogs and other animals.
       </p>
 
-      <section className="about-section">
+      <section>
         <h2>How it works</h2>
         <p>
           We collect information about animals from partner shelters and show it on this website.
@@ -23,7 +21,7 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section className="about-section">
+      <section>
         <h2>Why this project exists</h2>
         <p>
           There are always more animals than free places in shelters. A clear and simple website
@@ -32,9 +30,9 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section className="about-section">
+      <section>
         <h2>What you can do</h2>
-        <ul className="about-list">
+        <ul>
           <li>Adopt a pet that matches your life and energy level.</li>
           <li>Share this website with friends or colleagues.</li>
           <li>Support shelters with donations or by volunteering.</li>

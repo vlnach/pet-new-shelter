@@ -3,14 +3,15 @@ import configPromise from '@payload-config'
 import Image from 'next/image'
 
 import './id.css'
+import Link from 'next/link'
 
-type Props = {
+type idType = {
   params: {
     id: string
   }
 }
 
-export default async function PetDetailPage({ params }: Props) {
+export default async function PetDetailPage({ params }: idType) {
   const payload = await getPayload({ config: configPromise })
 
   const pet = await payload.findByID({
@@ -19,7 +20,7 @@ export default async function PetDetailPage({ params }: Props) {
   })
 
   return (
-    <div className="pet-detail">
+    <main>
       {typeof pet.photo === 'object' && pet.photo?.url && (
         <Image
           src={pet.photo.url}
@@ -30,15 +31,15 @@ export default async function PetDetailPage({ params }: Props) {
         />
       )}
 
-      <h1 className="pet-detail-title">{pet.name}</h1>
+      <h1>{pet.name}</h1>
 
       {pet.age != null && <p className="pet-detail-meta">{pet.age} years old</p>}
 
       {pet.description && <p className="pet-detail-description">{pet.description}</p>}
 
-      <a href={`/adopt/${pet.id}`} className="pet-detail-adopt-btn">
+      <Link href={`/adopt/${pet.id}`} className="pet-detail-adopt-btn ">
         Adopt this pet
-      </a>
-    </div>
+      </Link>
+    </main>
   )
 }
