@@ -5,6 +5,7 @@ import configPromise from '@payload-config'
 import { Filters } from './filter'
 import { PetsGrid } from './petsGrid'
 import './pets.css'
+import SearchPage from '../search/page'
 
 type PetsType = {
   searchParams?: {
@@ -36,7 +37,8 @@ export default async function PetsPage({ searchParams }: PetsType) {
       <h1 className="pets-page-title">Pets</h1>
       {/* Filter */}
       <Filters types={types.docs} selected={selectedType} />
-
+      {/* Search */}
+      <SearchPage searchParams={searchParams} />
       {/* Card grid */}
       <PetsGrid pets={pets.docs} />
     </div>
