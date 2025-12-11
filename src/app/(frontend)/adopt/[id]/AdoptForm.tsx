@@ -70,13 +70,13 @@ export default function AdoptForm({ petId }: AdoptFormProps) {
       </button>
 
       {status === 'success' && (
-        <p className="adopt-status adopt-status--success">
+        <p className="adopt-status adopt-status-success">
           Thank you! Your adoption request has been sent.
         </p>
       )}
 
       {status === 'error' && (
-        <p className="adopt-status adopt-status--error">Something went wrong. Please try again.</p>
+        <p className="adopt-status adopt-status-error">Something went wrong. Please try again.</p>
       )}
     </form>
   )

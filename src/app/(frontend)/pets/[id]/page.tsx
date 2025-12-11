@@ -1,5 +1,6 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
+import Image from 'next/image'
 
 import './id.css'
 
@@ -19,7 +20,15 @@ export default async function PetDetailPage({ params }: Props) {
 
   return (
     <div className="pet-detail">
-      {pet.photo?.url && <img src={pet.photo.url} alt={pet.name} className="pet-detail-image" />}
+      {typeof pet.photo === 'object' && pet.photo?.url && (
+        <Image
+          src={pet.photo.url}
+          alt={pet.name}
+          className="pet-detail-image"
+          width={700}
+          height={475}
+        />
+      )}
 
       <h1 className="pet-detail-title">{pet.name}</h1>
 

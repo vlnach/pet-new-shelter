@@ -67,10 +67,10 @@
   margin-top: 4px;
 }
 
-.adopt-status--success {
+.adopt-status-success {
   color: #2b8a3e;
 }
 
-.adopt-status--error {
+.adopt-status-error {
   color: #c92a2a;
 }

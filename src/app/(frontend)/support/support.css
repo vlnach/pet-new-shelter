@@ -4,23 +4,23 @@
   padding: 40px 24px 56px;
 }
 
-.about-lead {
+.support-lead {
   margin: 0 0 24px;
   font-size: 32px;
   line-height: 1.1;
 }
 
-.about-section {
+.support-section {
   margin-top: 56px;
   padding-top: 32px;
   border-top: 1px solid rgb(0 0 0 / 8%);
 }
 
-.about-list {
+.support-list {
   margin-top: 16px;
   padding-left: 20px;
 }
 
-.about-list li {
+.support-list li {
   margin-bottom: 8px;
 }

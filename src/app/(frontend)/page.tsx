@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { getPayload } from 'payload'
 import React from 'react'
 import { fileURLToPath } from 'url'
+import Link from 'next/link'
 
 import config from '@/payload.config'
 import './styles.css'
@@ -16,47 +17,67 @@ export default async function HomePage() {
   const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   return (
-    <div className="home">
-      <div className="content">
-        <picture>
-          <source srcSet="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg" />
-          <Image
-            alt="Payload Logo"
-            height={65}
-            src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg"
-            width={65}
-          />
-        </picture>
-        {!user && <h1>Welcome to your new project.</h1>}
-        {user && <h1>Welcome back, {user.email}</h1>}
-        <div className="links">
-          <a
-            className="admin"
-            href={payloadConfig.routes.admin}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Go to admin panel
-          </a>
-          <a
-            className="docs"
-            href="https://payloadcms.com/docs"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Documentation
-          </a>
-          <a className="links" href="/pets" rel="noopener noreferrer" target="_blank">
-            Pets
-          </a>
+    <main className="home-page">
+      <section className="hero">
+        <div className="hero-text">
+          <h1 className="hero-title">
+            Find a safe home
+            <br />
+            for every pet.
+          </h1>
+          <p className="hero-subtitle">
+            Browse pets from local shelters and send a short request in a few clicks.
+          </p>
+          <div className="hero-actions">
+            <Link href="/pets" className="btn-primary">
+              Browse pets
+            </Link>
+            <Link href="/about" className="btn-secondary">
+              How it works
+            </Link>
+          </div>
+          <div className="hero-stats">
+            <div>
+              <span className="hero-stat-number">50+</span>
+              <span className="hero-stat-label">Pets available</span>
+            </div>
+            <div>
+              <span className="hero-stat-number">10+</span>
+              <span className="hero-stat-label">Partner shelters</span>
+            </div>
+            <div>
+              <span className="hero-stat-number">98%</span>
+              <span className="hero-stat-label">Happy families</span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="footer">
-        <p>Update this page by editing</p>
-        <a className="codeLink" href={fileURL}>
-          <code>app/(frontend)/page.tsx</code>
-        </a>
-      </div>
-    </div>
+
+        <div className="hero-media">
+          <div className="hero-card">
+            <Image
+              src="/happy-family-with-adopted-dog-in-cozy-home.jpg"
+              alt="Happy dog with family"
+              layout="responsive"
+              width={700}
+              height={475}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <h2>How this project helps</h2>
+        <p>
+          We collect pet profiles from shelters and make it easy for people to find and adopt them.
+          The goal is to make adoptions faster and less stressful for both humans and animals.
+        </p>
+      </section>
+      <section className="home-section">
+        <p className="home-note">
+          Are you a shelter partner? <Link href="/admin">Log in to your dashboard</Link> to add new
+          pets.
+        </p>
+      </section>
+    </main>
   )
 }

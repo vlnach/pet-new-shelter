@@ -27,12 +27,11 @@ body {
   padding: 0 24px;
 }
 
-/* ========== HEADER ========== */
-
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 100;
+  width: 100%;
   background: rgb(247 239 229 / 90%);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid #e0d3c6;
@@ -117,23 +116,21 @@ body {
   box-shadow: 0 10px 18px rgb(160 90 40 / 30%);
 }
 
-@media (width <= 768px) {
+@media (width <= 632px) {
   .site-header-inner {
     gap: 12px;
   }
 
-  .site-nav {
+  .site-logo-text {
     display: none;
   }
 
   .site-cta {
-    padding: 6px 14px;
-    font-size: 13px;
+    display: none;
   }
 }
 
 .home {
-  min-height: calc(100vh - 72px);
   display: flex;
   flex-direction: column;
   align-items: center;

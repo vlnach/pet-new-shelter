@@ -37,7 +37,7 @@
   transform: translateY(-1px);
 }
 
-.pets-filters-chip--active {
+.pets-filters-chip-active {
   background: #b58444;
   color: #fff;
 }
