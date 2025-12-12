@@ -185,7 +185,11 @@ export interface Pet {
   type: number | AnimalType;
   age: number;
   description?: string | null;
-  photo: number | Media;
+  photo: (number | Media)[];
+  weight?: number | null;
+  size?: string | null;
+  gender?: string | null;
+  location?: string | null;
   slug: string;
   updatedAt: string;
   createdAt: string;
@@ -348,6 +352,10 @@ export interface PetsSelect<T extends boolean = true> {
   age?: T;
   description?: T;
   photo?: T;
+  weight?: T;
+  size?: T;
+  gender?: T;
+  location?: T;
   slug?: T;
   updatedAt?: T;
   createdAt?: T;

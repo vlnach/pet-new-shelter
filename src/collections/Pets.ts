@@ -41,7 +41,29 @@ export const Pets: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
       required: true,
+      hasMany: true,
     },
+    {
+      name: 'weight',
+      type: 'number',
+      required: false,
+    },
+    {
+      name: 'size',
+      type: 'text',
+      required: false,
+    },
+    {
+      name: 'gender',
+      type: 'text',
+      required: false,
+    },
+    {
+      name: 'location',
+      type: 'text',
+      required: false,
+    },
+
     {
       name: 'slug',
       label: 'Slug for URL',
