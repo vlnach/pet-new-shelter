@@ -17,17 +17,23 @@ export default async function PetDetailPage({ params }: idType) {
   const pet = await payload.findByID({
     collection: 'pets',
     id: params.id,
+    depth: 1,
   })
 
+  const photo =
+    pet.photo && typeof pet.photo === 'object' && 'url' in pet.photo
+      ? (pet.photo as { url: string })
+      : null
+
   return (
-    <main>
-      {typeof pet.photo === 'object' && pet.photo?.url && (
+    <main className="pet-detail">
+      {photo && (
         <Image
-          src={pet.photo.url}
-          alt={pet.name}
+          src={photo.url}
+          alt={pet.name || 'Pet photo'}
           className="pet-detail-image"
-          width={700}
-          height={475}
+          width={600}
+          height={400}
         />
       )}
 

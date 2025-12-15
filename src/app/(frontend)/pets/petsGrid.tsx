@@ -16,15 +16,24 @@ export function PetsGrid({ pets }: PetsGridType) {
       {pets.map((pet) => (
         <article key={pet.id} className="pet-card">
           <Link href={`/pets/${pet.id}`}>
-            {typeof pet.photo !== 'number' && pet.photo?.url && (
-              <Image
-                src={pet.photo.url}
-                alt={pet.name}
-                className="pet-card-image"
-                width={400}
-                height={300}
-              />
-            )}
+            {(() => {
+              const photo = Array.isArray(pet.photo)
+                ? pet.photo.find((p) => typeof p !== 'number' && !!p && 'url' in p)
+                : pet.photo
+
+              return (
+                typeof photo !== 'number' &&
+                photo?.url && (
+                  <Image
+                    src={photo.url}
+                    alt={pet.name}
+                    className="pet-card-image"
+                    width={400}
+                    height={300}
+                  />
+                )
+              )
+            })()}
           </Link>
 
           <div className="pet-card-body">
