@@ -11,6 +11,22 @@ type idType = {
   }
 }
 
+function getPhotoUrls(photo: any): string[] {
+  if (!photo) return []
+
+  if (Array.isArray(photo)) {
+    return photo
+      .filter((p: any) => p && typeof p === 'object' && 'url' in p)
+      .map((p: any) => p.url as string)
+  }
+
+  if (photo && typeof photo === 'object' && 'url' in photo) {
+    return [photo.url as string]
+  }
+
+  return []
+}
+
 export default async function PetDetailPage({ params }: idType) {
   const payload = await getPayload({ config: configPromise })
 
@@ -20,30 +36,60 @@ export default async function PetDetailPage({ params }: idType) {
     depth: 1,
   })
 
-  const photo =
-    pet.photo && typeof pet.photo === 'object' && 'url' in pet.photo
-      ? (pet.photo as { url: string })
-      : null
+  const photoUrls = getPhotoUrls(pet.photo)
+  const [mainPhoto, ...extraPhotos] = photoUrls
 
   return (
     <main className="pet-detail">
-      {photo && (
-        <Image
-          src={photo.url}
-          alt={pet.name || 'Pet photo'}
-          className="pet-detail-image"
-          width={600}
-          height={400}
-        />
-      )}
+      {/* Left column: main photo + thumbnails */}
+      <div>
+        {mainPhoto && (
+          <Image
+            src={mainPhoto}
+            alt={pet.name || 'Pet photo'}
+            className="pet-detail-image"
+            width={600}
+            height={400}
+          />
+        )}
 
+        {extraPhotos.length > 0 && (
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+              gap: '12px',
+              marginTop: '12px',
+            }}
+          >
+            {extraPhotos.slice(0, 3).map((url) => (
+              <Image
+                key={url}
+                src={url}
+                alt={pet.name || 'Pet photo'}
+                className="pet-detail-image"
+                width={180}
+                height={140}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Right column: text and button - as before */}
       <h1>{pet.name}</h1>
 
-      {pet.age != null && <p className="pet-detail-meta">{pet.age} years old</p>}
+      <section className="meta">
+        {pet.age != null && <div>🎂 Age - {pet.age} years</div>}
+        {pet.weight != null && <div>⚖️ Weight - {pet.weight} kg</div>}
+        {pet.size && <div>📏 Size - {pet.size}</div>}
+        {pet.gender && <div>🚻 Gender - {pet.gender}</div>}
+        {pet.location && <div>📍 Location - {pet.location}</div>}
+      </section>
 
       {pet.description && <p className="pet-detail-description">{pet.description}</p>}
 
-      <Link href={`/adopt/${pet.id}`} className="pet-detail-adopt-btn ">
+      <Link href={`/adopt/${pet.id}`} className="pet-detail-adopt-btn">
         Adopt this pet
       </Link>
     </main>
