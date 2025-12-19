@@ -27,8 +27,8 @@ export default async function PetsPage({ searchParams }: PetsType) {
   })
 
   // 2. Read the selected filter and search query from the URL (?type=dog&q=buddy)
-  const selectedType = searchParams?.type || null
-  const searchQuery = searchParams?.q || ''
+  const selectedType = (await searchParams)?.type || null
+  const searchQuery = (await searchParams)?.q || ''
 
   // 3. Build the query conditions
 
