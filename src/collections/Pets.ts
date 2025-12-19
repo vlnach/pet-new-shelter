@@ -1,5 +1,4 @@
 import type { CollectionConfig } from 'payload'
-import { AnimalTypes } from './AnimalTypes'
 
 export const Pets: CollectionConfig = {
   slug: 'pets',

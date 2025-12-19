@@ -7,10 +7,10 @@ import { PetsGrid } from './petsGrid'
 import './pets.css'
 
 type PetsType = {
-  searchParams?: {
+  searchParams?: Promise<{
     type?: string
     q?: string
-  }
+  }>
 }
 type PetsWhereConditions = {
   type?: { equals: string }

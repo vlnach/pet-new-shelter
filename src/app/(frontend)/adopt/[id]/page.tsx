@@ -1,16 +1,18 @@
-import AdoptForm from './AdoptForm'
+import AdoptForm from './adoptForm'
 
 type FormType = {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
-export default function AdoptPage({ params }: FormType) {
+export default async function AdoptPage({ params }: FormType) {
+  const { id } = await params
+
   return (
     <main>
       <h1>Adopt this pet</h1>
-      <AdoptForm petId={params.id} />
+      <AdoptForm petId={id} />
     </main>
   )
 }

@@ -6,9 +6,9 @@ import './id.css'
 import Link from 'next/link'
 
 type idType = {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 function getPhotoUrls(photo: any): string[] {
@@ -32,7 +32,7 @@ export default async function PetDetailPage({ params }: idType) {
 
   const pet = await payload.findByID({
     collection: 'pets',
-    id: params.id,
+    id: (await params).id,
     depth: 1,
   })
 
@@ -76,7 +76,7 @@ export default async function PetDetailPage({ params }: idType) {
         )}
       </div>
 
-      {/* Right column: text and button - as before */}
+      {/* Right column: text and button  as before */}
       <h1>{pet.name}</h1>
 
       <section className="meta">
