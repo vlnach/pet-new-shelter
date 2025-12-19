@@ -1,4 +1,4 @@
-import AdoptForm from './adoptForm'
+import AdoptForm from './AdoptForm'
 
 type FormType = {
   params: Promise<{
