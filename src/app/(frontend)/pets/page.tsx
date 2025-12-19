@@ -3,7 +3,7 @@ import configPromise from '@payload-config'
 
 import { Filters } from './filter'
 import { PetsGrid } from './petsGrid'
-import { Search } from './search'
+// import { Search } from './search'
 import './pets.css'
 
 type PetsType = {
@@ -55,7 +55,7 @@ export default async function PetsPage({ searchParams }: PetsType) {
 
       <div className="pets-toolbar">
         <Filters types={types.docs} selected={selectedType} searchQuery={searchQuery} />
-        <Search defaultValue={searchQuery} />
+        {/* <Search defaultValue={searchQuery} /> */}
       </div>
 
       {searchQuery && (
