@@ -2,6 +2,8 @@
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
+import { resendAdapter } from '@payloadcms/email-resend'
+
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -37,6 +39,13 @@ export default buildConfig({
     },
   }),
   sharp,
+
+  email: resendAdapter({
+    apiKey: process.env.RESEND_API_KEY || '',
+    defaultFromAddress: process.env.EMAIL_FROM || 'noreply@example.com',
+    defaultFromName: 'Pet Shelter',
+  }),
+
   plugins: [
     s3Storage({
       collections: {

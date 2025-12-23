@@ -55,7 +55,7 @@
   font-size: 14px;
 }
 
-.site-nav a {
+.site-nav-link {
   text-decoration: none;
   color: var(--color-muted);
   padding-bottom: 4px;
@@ -65,9 +65,15 @@
     border-color 0.15s ease;
 }
 
-.site-nav a:hover {
+.site-nav-link:hover {
   color: var(--color-text);
   border-bottom-color: var(--color-accent);
+}
+
+.site-nav-link-active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+  font-weight: 600;
 }
 
 .site-cta {

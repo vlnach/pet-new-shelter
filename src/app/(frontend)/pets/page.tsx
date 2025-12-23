@@ -17,6 +17,10 @@ type PetsWhereConditions = {
   name?: { like: string }
 }
 
+// Next.js will invalidate the cache when a
+// request comes in, at most once every 60 seconds.
+export const revalidate = 60
+
 export default async function PetsPage({ searchParams }: PetsType) {
   const payload = await getPayload({ config: configPromise })
 
