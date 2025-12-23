@@ -35,5 +35,18 @@ export const Adoptions: CollectionConfig = {
       label: 'Message',
       type: 'textarea',
     },
+
+    {
+      name: 'status',
+      label: 'Status',
+      type: 'select',
+      required: true,
+      defaultValue: 'pending',
+      options: [
+        { label: 'Pending', value: 'pending' },
+        { label: 'Approved', value: 'approved' },
+        { label: 'Rejected', value: 'rejected' },
+      ],
+    },
   ],
 }

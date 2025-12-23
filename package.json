@@ -34,7 +34,8 @@
     "react-server-dom-parcel": "^19.2.3",
     "react-server-dom-turbopack": "^19.2.3",
     "react-server-dom-webpack": "^19.2.3",
-    "sharp": "0.34.2"
+    "sharp": "0.34.2",
+    "slugify": "^1.6.6"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

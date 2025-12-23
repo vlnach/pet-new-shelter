@@ -128,6 +128,7 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  role: 'admin' | 'staff';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -183,10 +184,19 @@ export interface Pet {
   id: number;
   name: string;
   type: number | AnimalType;
+  /**
+   * In years (e.g., 3.5 for three and a half years old)
+   */
   age: number;
   description?: string | null;
   photo: (number | Media)[];
+  /**
+   * In kilograms (kg)
+   */
   weight?: number | null;
+  /**
+   * e.g., Small, Medium, Large
+   */
   size?: string | null;
   gender?: string | null;
   location?: string | null;
@@ -204,6 +214,7 @@ export interface Adoption {
   name: string;
   email: string;
   message?: string | null;
+  status: 'pending' | 'approved' | 'rejected';
   updatedAt: string;
   createdAt: string;
 }
@@ -298,6 +309,7 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -369,6 +381,7 @@ export interface AdoptionsSelect<T extends boolean = true> {
   name?: T;
   email?: T;
   message?: T;
+  status?: T;
   updatedAt?: T;
   createdAt?: T;
 }
